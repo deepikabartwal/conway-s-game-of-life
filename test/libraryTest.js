@@ -12,4 +12,8 @@ describe('createArray', function(){
     deepEqual(createArray(1,0),[0]);
     deepEqual(createArray(1,'hi'),['hi']);
   });
+  it("should create an array of n elements", function(){
+    deepEqual(createArray(2,1),[1,1]);
+    deepEqual(createArray(4,8),[8,8,8,8]);
+  });
 });
