@@ -2,6 +2,7 @@ const { equal, deepEqual } = require('assert');
 
 const {
   createArray,
+  printWorld,
   generateBoard,
   placeAlives,
   addSpaces,
@@ -83,6 +84,27 @@ describe("printBoard",function(){
     expected_output += "-----\n";
     expected_output += "|   |\n";
     expected_output += "-----";
-    deepEqual(printBoard(generateBoard(1,1," ")),expected_output);
+    deepEqual(printBoard(generateBoard(1,1)),expected_output);
+  });
+});
+
+describe('printWorld', function(){
+  it('should print the world grid of 1*1 dimensions', function(){
+    let aliveCellList = [];
+    let rows = 1;
+    let columns = 1;
+    let world = {aliveCellList,rows,columns};
+    let actual_output = printWorld(world);
+    let expected_output = printBoard(generateBoard(1,1));
+    deepEqual(actual_output,expected_output);
+  });
+  it('should print the world grid of 2*2 dimensions', function(){
+    let aliveCellList = [[0,0],[1,1]];
+    let rows = 2;
+    let columns = 2;
+    let world = {aliveCellList,rows,columns};
+    let actual_output = printWorld(world);
+    let expected_output = printBoard([[1,0],[0,1]]);
+    deepEqual(actual_output,expected_output);
   });
 });

@@ -50,8 +50,16 @@ const printBoard = function(board){
   return lines.concat(boardlines).join('\n');
 };
 
+const printWorld = function(world){
+  let {aliveCellList,rows,columns} = world;
+  let board = generateBoard(rows,columns);
+  let newBoard = placeAlives(aliveCellList,board);
+  return printBoard(newBoard);
+}
+
 module.exports = {
   createArray,
+  printWorld,
   generateBoard,
   placeAlives,
   addSpaces,
