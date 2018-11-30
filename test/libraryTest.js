@@ -3,7 +3,10 @@ const { equal, deepEqual } = require('assert');
 const {
   createArray,
   generateBoard,
-  placeAlives
+  placeAlives,
+  addSpaces,
+  checkCell,
+  printBoard
 } = require('../src/library.js');
 
 describe('createArray', function(){
@@ -49,5 +52,37 @@ describe('placeAlives', function(){
   it("should work for rectangular board", function(){
     let board = generateBoard(2,3);
     deepEqual(placeAlives([[1,1],[0,0],[1,2]],board),[[1,0,0],[0,1,1]]);
+  });
+});
+
+describe("addSpaces",function(){
+  it('should add spaces around single letter',function(){
+    deepEqual(addSpaces("a")," a ");
+  });
+  it("should add spaces around a word", function(){
+    deepEqual(addSpaces("sai")," sai ");
+  });
+  it("should add spaces around end of sentence", function(){
+    deepEqual(addSpaces("i have a dog")," i have a dog ");
+  });
+});
+
+describe("checkCell",function(){
+  it("should print alive cell character when given one",function(){
+    let alive = "\u25A0";
+    deepEqual(checkCell(1),alive);
+  });
+  it("should print empty space when given zero",function(){
+    deepEqual(checkCell(0)," ");
+  });
+});
+
+describe("printBoard",function(){
+  it("should print 1*1 board",function(){
+    expected_output = "";
+    expected_output += "-----\n";
+    expected_output += "|   |\n";
+    expected_output += "-----";
+    deepEqual(printBoard(generateBoard(1,1," ")),expected_output);
   });
 });

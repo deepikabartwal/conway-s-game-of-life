@@ -30,8 +30,31 @@ const placeAlives = function(aliveCellList,board){
   return newBoard;
 }
 
+const addSpaces = function(text){
+  return " "+text+" ";
+}
+
+const checkCell = function(elem){
+  let alivecell = '\u25A0';
+  let deadcell = ' ';
+  return elem == 1 ? alivecell : deadcell;
+}
+
+const printBoard = function(board){
+  let length = board[0].length;
+  let dashline = createArray(length*4+1,"-").join("");
+  let lines = [];
+  lines.push(dashline);
+  let boardlines = board.map((x) => "|"+x.map(checkCell).map(addSpaces).join("|")+"|");
+  boardlines = boardlines.map((x) => x+"\n"+dashline);
+  return lines.concat(boardlines).join('\n');
+};
+
 module.exports = {
   createArray,
   generateBoard,
-  placeAlives
+  placeAlives,
+  addSpaces,
+  checkCell,
+  printBoard
 }
