@@ -24,7 +24,14 @@ const generateBoard = function(rows,columns){
   return createArray(rows,rows).map((x) => createArray(columns,0));
 }
 
+const placeAlives = function(aliveCellList,board){
+  newBoard = board.map((x) => x.slice());
+  aliveCellList.map((x) => newBoard[x[0]][x[1]] = 1);
+  return newBoard;
+}
+
 module.exports = {
   createArray,
-  generateBoard
+  generateBoard,
+  placeAlives
 }

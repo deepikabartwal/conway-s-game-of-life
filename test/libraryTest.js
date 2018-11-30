@@ -2,7 +2,8 @@ const { equal, deepEqual } = require('assert');
 
 const {
   createArray,
-  generateBoard
+  generateBoard,
+  placeAlives
 } = require('../src/library.js');
 
 describe('createArray', function(){
@@ -29,5 +30,12 @@ describe('generateBoard', function(){
   it("should create an m*n board", function(){
     deepEqual(generateBoard(2,1),[[0],[0]]);
     deepEqual(generateBoard(3,3),[[0,0,0],[0,0,0],[0,0,0]]);
+  });
+});
+
+describe('placeAlives', function(){
+  it('should placeAlives cell in 1*1 board', function(){
+    let board = generateBoard(1,1);
+    deepEqual(placeAlives([[0,0]],board),[[1]]);
   });
 });
