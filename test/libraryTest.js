@@ -1,7 +1,8 @@
 const { equal, deepEqual } = require('assert');
 
 const {
-  createArray 
+  createArray,
+  generateBoard
 } = require('../src/library.js');
 
 describe('createArray', function(){
@@ -15,5 +16,11 @@ describe('createArray', function(){
   it("should create an array of n elements", function(){
     deepEqual(createArray(2,1),[1,1]);
     deepEqual(createArray(4,8),[8,8,8,8]);
+  });
+});
+
+describe('generateBoard', function(){
+  it('should create an 0*0 board', function(){
+    deepEqual(generateBoard(0,0),[]);
   });
 });

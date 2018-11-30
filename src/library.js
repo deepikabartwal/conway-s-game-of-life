@@ -20,6 +20,11 @@ const createArray = function(length,filler){
   return new Array(length).fill(filler);
 }
 
+const generateBoard = function(rows,columns){
+  return createArray(rows,rows).map((x) => createArray(columns,0));
+}
+
 module.exports = {
-  createArray
+  createArray,
+  generateBoard
 }
