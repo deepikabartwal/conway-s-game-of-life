@@ -107,4 +107,14 @@ describe('printWorld', function(){
     let expected_output = printBoard([[1,0],[0,1]]);
     deepEqual(actual_output,expected_output);
   });
+  it('should print the world grid of 3*4 dimensions', function(){
+    let aliveCellList = [[0,2],[1,3],[2,1],[2,3]];
+    let rows = 3;
+    let columns = 4;
+    let world = {aliveCellList,rows,columns};
+    let actual_output = printWorld(world);
+    let expected_output = printBoard([[0,0,1,0],[0,0,0,1],[0,1,0,1]]);
+    deepEqual(actual_output,expected_output);
+  });
+
 });
