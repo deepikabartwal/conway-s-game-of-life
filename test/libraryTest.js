@@ -46,4 +46,8 @@ describe('placeAlives', function(){
     let board = generateBoard(4,4)
     deepEqual(placeAlives([[0,1],[3,3],[2,1],[1,1]],board),[[0,1,0,0],[0,1,0,0],[0,1,0,0],[0,0,0,1]])
   });
+  it("should work for rectangular board", function(){
+    let board = generateBoard(2,3);
+    deepEqual(placeAlives([[1,1],[0,0],[1,2]],board),[[1,0,0],[0,1,1]]);
+  });
 });
