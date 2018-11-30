@@ -38,4 +38,8 @@ describe('placeAlives', function(){
     let board = generateBoard(1,1);
     deepEqual(placeAlives([[0,0]],board),[[1]]);
   });
+  it("should place alives cells in 2*2 board", function(){
+    let board = generateBoard(2,2);
+    deepEqual(placeAlives([[0,0],[1,0]],board),[[1,0],[1,0]]);
+  });
 });
