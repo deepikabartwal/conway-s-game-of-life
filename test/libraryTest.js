@@ -26,4 +26,8 @@ describe('generateBoard', function(){
   it("should create an 1*1 board", function(){
     deepEqual(generateBoard(1,1),[[0]]);
   });
+  it("should create an m*n board", function(){
+    deepEqual(generateBoard(2,1),[[0],[0]]);
+    deepEqual(generateBoard(3,3),[[0,0,0],[0,0,0],[0,0,0]]);
+  });
 });
